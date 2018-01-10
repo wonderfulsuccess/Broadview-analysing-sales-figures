@@ -1,8 +1,14 @@
+#功能
+
+1.爬去当当网计算机类目所有图书
+2.支持代理随机选择
+3.支持代理ip随机选择
+
 #如何运行
- 
-1. pip install scrapy
-2. cd bookinfo
-3. scrapy crawl dangdangbook
+
+1.pip install scrapy
+2.cd bookinfo
+3.scrapy crawl dangdangbook
 
 运行完毕后项目根目录出现/bookdata/data.json 为目标数据
 
@@ -19,3 +25,7 @@
 {},100
 ]
 目标数据为一个符合Python list 数据格式的字典list最后一个数字代表图书的总数
+
+
+#todo list
+暂无
