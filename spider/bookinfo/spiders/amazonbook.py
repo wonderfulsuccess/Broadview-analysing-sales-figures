@@ -39,18 +39,15 @@ class AmazonBookSpider(scrapy.Spider):
         for i in range(1, _rankcount+1):
             #类型list
             _c = response.xpath("//li[@id='SalesRank']/ul/li[$index]/span[2]/a/text()", index=i).extract()
-            print('count: %s cccccccc: %s' % (_rankcount, str(_c)))
             _cstr = []
             for _cs in _c:
                 _cstr.append(str(_cs))
                 _cstr.append('>')
-            print('__________cs: %s ' % _cstr)
             dic = dict()
             dic[response.xpath("//li[@id='SalesRank']/ul/li[$index]/span[1]/text()", index=i).extract_first()] \
                 = ''.join(_cstr[:-1])
             _classifies.append(dic)
 
-        print('issssssssss: %s' % str(_classifies))
         item = BookinfoItem()
         item['coverImage'] = response.xpath("//img[@id='ebooksImgBlkFront']/@src").extract()
         item['classify'] = str(_classifies)
