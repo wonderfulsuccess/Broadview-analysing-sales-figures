@@ -8,19 +8,19 @@
 from scrapy import signals
 
 import random
-from bookinfo.settings import IPPOOL
+# from bookinfo.settings import IPPOOL
 from scrapy.downloadermiddlewares.httpproxy import HttpProxyMiddleware
 
 
-class IPPOOLS(HttpProxyMiddleware):
-
-    def __init__(self, ip=''):
-        self.ip = ip
-
-    def process_request(self, request, spider):
-        thisip = random.choice(IPPOOL)
-        # print('当前的IP是：'+thisip['ipaddr'])
-        request.meta['proxy']="http://"+thisip['ipaddr']
+# class IPPOOLS(HttpProxyMiddleware):
+#
+#     def __init__(self, ip=''):
+#         self.ip = ip
+#
+#     def process_request(self, request, spider):
+#         thisip = random.choice(IPPOOL)
+#         # print('当前的IP是：'+thisip['ipaddr'])
+#         request.meta['proxy']="http://"+thisip['ipaddr']
 
 
 class BookinfoSpiderMiddleware(object):
