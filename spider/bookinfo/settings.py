@@ -33,7 +33,7 @@ ROBOTSTXT_OBEY = False
 #CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
-#COOKIES_ENABLED = False
+COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
@@ -54,7 +54,7 @@ ROBOTSTXT_OBEY = False
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
     'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware':123,
-    'bookinfo.middlewares.IPPOOLS':125,
+    # 'bookinfo.middlewares.IPPOOLS':125,
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware':2,
     'bookinfo.uamid.Uamid':1
 }
@@ -68,7 +68,8 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'bookinfo.pipelines.BookinfoPipeline': 300,
+    'bookinfo.pipelines.AmazonBookInfoPipeline': 200,
+    'bookinfo.pipelines.BookinfoPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -92,11 +93,11 @@ ITEM_PIPELINES = {
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
-
-IPPOOL=[
-    # {"ipaddr":"101.236.62.215:8080"},
-    {'ipaddr':"127.0.0.1:1080"},
-]
+#
+# IPPOOL=[
+#     # {"ipaddr":"101.236.62.215:8080"},
+#     {'ipaddr':"127.0.0.1:1080"},
+# ]
 
 
 UAPOOL=[

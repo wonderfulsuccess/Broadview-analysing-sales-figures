@@ -8,7 +8,7 @@ class DangdangbookSpider(scrapy.Spider):
     
     def start_requests(self):
         # 爬去计算机和网络图书列表的前4页
-        for page in range(1,5):
+        for page in range(1, 2):
             yield scrapy.Request(url='http://category.dangdang.com/pg'+str(page)+'-cp01.54.00.00.00.00-srsort_score_desc.html', meta={'current_page':page}, callback=self.parse)
 
     def parse(self, response):
